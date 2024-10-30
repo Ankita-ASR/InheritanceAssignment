@@ -1,20 +1,13 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Questions {
     private String questionText;
+    private String answer;
 
-    public void addText(String text) {
-        questionText += text + " ";
-    }
-}
-
-class ChoiceQuestion extends Questions {
-    public List<String> choices = new ArrayList<>();
-
-    public void addChoice(String choice) {
-        choices.add(choice);
+    public Questions(String questionText, String answer) {
+        this.questionText = questionText;
+        this.answer = answer;
     }
 
-    // Use addText instead of storing choices directly
+    public boolean checkAnswer(String response) {
+        return response.trim().equalsIgnoreCase(answer);
+    }
 }
